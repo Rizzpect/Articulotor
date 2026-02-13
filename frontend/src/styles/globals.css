@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Articulotor — Premium Design System (LIGHT THEME)
+   Apple.com × Linear.app × Stripe.com inspiration
+   ========================================================================== */
+
+/* Google Fonts — Premium Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&display=swap');
+
+/* ---------- CSS Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- CSS Custom Properties — LIGHT THEME ---------- */
+:root {
+  /* Backgrounds — Light & Airy */
+  --bg-primary:    #f5f5f7;
+  --bg-secondary:  #fafaf9;
+  --bg-card:       #ffffff;
+  --bg-elevated:   #ffffff;
+  --bg-muted:      #f0f0f2;
+  --bg-orb:        #0a0a0f;  /* Dark canvas for voice orb only */
+
+  /* Accent gradient — Indigo → Purple */
+  --accent-1:      #667eea;
+  --accent-2:      #764ba2;
+  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --accent-glow:   rgba(102, 126, 234, 0.25);
+  --accent-soft:   rgba(102, 126, 234, 0.08);
+
+  /* Semantic */
+  --success:       #34d399;
+  --success-soft:  rgba(52, 211, 153, 0.1);
+  --warning:       #fbbf24;
+  --warning-soft:  rgba(251, 191, 36, 0.1);
+  --danger:        #f43f5e;
+  --danger-soft:   rgba(244, 63, 94, 0.1);
+  --info:          #3b82f6;
+  --info-soft:     rgba(59, 130, 246, 0.1);
+
+  /* Text — Near-black to grey */
+  --text-primary:  #1d1d1f;
+  --text-secondary:#86868b;
+  --text-muted:    #aeaeb2;
+  --text-inverse:  #ffffff;
+
+  /* Borders & Shadows */
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-hover:  rgba(0, 0, 0, 0.12);
+  --border-accent: rgba(102, 126, 234, 0.3);
+  --shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md:     0 2px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg:     0 8px 40px rgba(0, 0, 0, 0.08);
+  --shadow-xl:     0 20px 60px rgba(0, 0, 0, 0.1);
+  --shadow-glow:   0 0 30px rgba(102, 126, 234, 0.15);
+
+  /* Typography */
+  --font-display:  'Outfit', sans-serif;
+  --font-body:     'Inter', sans-serif;
+  --font-mono:     'JetBrains Mono', monospace;
+
+  /* Spacing scale */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Radii */
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Z-index scale */
+  --z-base:     1;
+  --z-card:     10;
+  --z-dropdown: 20;
+  --z-backdrop: 30;
+  --z-modal:    40;
+  --z-toast:    50;
+
+  /* Transitions */
+  --ease-out:  cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(102, 126, 234, 0.2);
+  color: var(--text-primary);
+}
+
+/* ---------- Focus Ring ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent-1);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Typography Utility Classes ---------- */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ---------- Layout Utilities ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* ---------- Card Base Styles ---------- */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s var(--ease-out);
+}
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ---------- Gradient Text ---------- */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- Shimmer animation ---------- */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ---------- Pulse glow ---------- */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.3); }
+}
+
+/* ---------- Bounce dots ---------- */
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
+/* ---------- SR Only (Screen Reader) ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ---------- Link Reset ---------- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Button Reset ---------- */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- Input Reset ---------- */
+input, textarea {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+  color: inherit;
+}
+
+/* ---------- Image Reset ---------- */
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Subtle grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
